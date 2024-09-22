@@ -1,4 +1,5 @@
-bind = '0.0.0.0'
-workers = 4
-timeout = 120
-loglevel = 'info'
+bind = '127.0.0:5000'
+workers = 3
+loglevel = 'debug'
+accesslog = '-'
+errorlog = '-'
