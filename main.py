@@ -3,10 +3,11 @@ from flask import Flask, Response, request, make_response
 
 app = Flask(__name__)
 
-@app.post('/')
-def webhook() -> Response:
+@app.post('/<token>')
+def webhook(token) -> Response:
     # Optionally, process or log the JSON request data
     # data = request.get_json()
+    print(token)
     return Response(status=HTTPStatus.OK)
 
 @app.get('/healthcheck')
