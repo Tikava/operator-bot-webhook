@@ -26,7 +26,8 @@ def set_webhook() -> Response:
         files = {'certificate': file}
         data = {'url': f'{SERVICE_URL}/webhook/{token}'}
         
-        requests.post(f'https://api.telegram.org/bot{token}/setWebhook', files=files, data=data)
+        response = requests.post(f'https://api.telegram.org/bot{token}/setWebhook', files=files, data=data)
+        return Response(response.text, status=response.status_code)
 
 
 @app.get('/health')
